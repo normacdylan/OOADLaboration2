@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="OOADLaboration2.SearchPage"
+    Title="Search For Stuff You Like">
+    <ContentPage.Content>
+        <StackLayout> 
+            <Picker x:Name="SearchPicker" 
+                    Title="Select what to search for"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                    >
+              <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                  <x:String>Movie</x:String>
+                  <x:String>TV-Show</x:String>
+                  <x:String>Both</x:String>
+                </x:Array>
+              </Picker.ItemsSource>
+             <Picker.SelectedIndex>0</Picker.SelectedIndex>
+            </Picker>
+        
+            <Entry 
+                Placeholder="Enter Search Term Here"
+                ReturnType="Search"
+                FontSize="Medium"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                IsTextPredictionEnabled="true"
+                IsSpellCheckEnabled="true"
+                />
+            
+            <Button 
+                x:Name="SearchButton"
+                Text="Search!"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                />
+        </StackLayout>   
+    </ContentPage.Content>
+</ContentPage>

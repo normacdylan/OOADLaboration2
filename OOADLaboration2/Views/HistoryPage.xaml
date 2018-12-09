@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="OOADLaboration2.HistoryPage"
+    Title="Search History">
+    <ContentPage.Content>
+        <StackLayout>
+            <TableView
+                Intent="Data">
+                <TableRoot>
+                    <TableSection
+                        Title="Latest Searches">
+                        <TextCell
+                            Text="Tolkien"
+                            TextColor="Black"
+                        />
+                        <TextCell
+                            Text="Sweden"
+                            TextColor="Black"
+                        />
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
