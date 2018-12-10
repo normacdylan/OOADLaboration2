@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using OOADLaboration2.ViewModels;
 using Xamarin.Forms;
 
 namespace OOADLaboration2
@@ -9,13 +9,8 @@ namespace OOADLaboration2
     {
         public SearchPage()
         {
+            BindingContext = new SearchViewModel(Navigation);
             InitializeComponent();
-            SearchButton.Clicked += async (sender, args) =>
-            {
-                await Navigation.PushAsync(new ResultPage());
-            };
         }
-
-        // selected = SearchPicker.selectedIndex
     }
 }
