@@ -4,14 +4,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:vm="clr-namespace:OOADLaboration2.ViewModels"
     x:Class="OOADLaboration2.ResultPage"
-    Title="Search Results">
+    Title="Recommendations">
     <ContentPage.BindingContext>
         <vm:ResultViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
            <ListView x:Name="listView"
-                     ItemsSource="{Binding Products}">
+                     ItemsSource="{Binding Products}"
+                     RowHeight="65">
               <ListView.ItemTemplate>
                   <DataTemplate>
                     <TextCell

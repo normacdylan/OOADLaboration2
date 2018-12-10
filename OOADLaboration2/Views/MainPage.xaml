@@ -8,16 +8,13 @@
     <StackLayout>
         <Button 
             x:Name="GoToSearchButton"
-            Text = "Search For Stuff You Like"
-            HorizontalOptions = "Center"
-            VerticalOptions = "CenterAndExpand"
-            />
-        
-        <Button 
-            x:Name="GoToHistoryButton"
-            Text = "Search History"
-            HorizontalOptions = "Center"
-            VerticalOptions = "CenterAndExpand"
+            Text="Search For Stuff You Like"
+            TextColor="White"
+            WidthRequest="205"
+            HeightRequest="55"
+            BackgroundColor="#6B0F1A"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
             />
     </StackLayout>
 </ContentPage>

@@ -15,11 +15,6 @@ namespace OOADLaboration2
             {
                 await Navigation.PushAsync(new SearchPage());
             };
-
-            GoToHistoryButton.Clicked += async (sender, args) =>
-            {
-                await Navigation.PushAsync(new HistoryPage());
-            };
         }
     }
 }
