@@ -51,8 +51,8 @@ namespace OOADLaboration2.ViewModels
 
         async void Search()
         {
-            //if (ValidateSearch())
-            await Navigation.PushAsync(new ResultPage(entry, Types[selectedIndex]));
+            if (ValidateSearch())
+                await Navigation.PushAsync(new ResultPage(entry, Types[selectedIndex]));
         }
 
         void SearchPressed()
@@ -76,6 +76,7 @@ namespace OOADLaboration2.ViewModels
 
         bool ValidateSearch()
         {
+            _search.Value = entry;
             return _search.Validate();
         }
 

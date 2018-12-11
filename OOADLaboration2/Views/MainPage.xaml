@@ -12,7 +12,7 @@
             TextColor="White"
             FontSize="Micro"
             WidthRequest="210"
-            HeightRequest="210"
+            HeightRequest="80"
             BorderRadius="6"
             BackgroundColor="#6B0F1A"
             HorizontalOptions="CenterAndExpand"
