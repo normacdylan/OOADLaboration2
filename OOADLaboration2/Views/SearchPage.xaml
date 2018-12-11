@@ -2,8 +2,13 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:OOADLaboration2"
+    xmlns:vm="clr-namespace:OOADLaboration2.ViewModels"
     x:Class="OOADLaboration2.SearchPage"
     Title="Search">
+    <ContentPage.BindingContext>
+        <vm:SearchViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand">
             <Picker x:Name="SearchPicker" 
@@ -16,19 +21,19 @@
                     >
                 <Picker.ItemsSource>
                     <x:Array Type="{x:Type x:String}">
+                        <x:String>All Categories</x:String>
                         <x:String>Movies</x:String>
                         <x:String>TV Shows</x:String>
                         <x:String>Music</x:String>
                         <x:String>Books</x:String>
-                        <x:String>All</x:String>
                 </x:Array>
               </Picker.ItemsSource>
-             <Picker.SelectedIndex></Picker.SelectedIndex>
+             <Picker.SelectedIndex>0</Picker.SelectedIndex>
             </Picker>
         
-            <Entry 
-                x:Name="UserInput"
-                Placeholder="Your search"
+            <Entry
+                Text="{Binding SearchInput.Value}"
+                Placeholder="New search"
                 ReturnType="Search"
                 FontSize="Medium"
                 HorizontalOptions="Center"
@@ -36,7 +41,16 @@
                 HeightRequest="50"
                 IsTextPredictionEnabled="true"
                 IsSpellCheckEnabled="true"
-                />
+            />
+                
+            <Label
+                Text="{Binding SearchInput.Errors,
+                Converter={local:Converter.ErrorConverter}}"
+                FontSize="Small"
+                TextColor="#6B0F1A"
+                Margin="2"
+                HorizontalOptions="Center" />
+            <Label Text="{Binding ErrorMessage}" />
             
             <Button 
                 x:Name="SearchButton"
@@ -45,8 +59,8 @@
                 WidthRequest="205"
                 HeightRequest="55"
                 BackgroundColor="#18314F"
-                Margin="8"
                 HorizontalOptions="Center"
+                Command="{Binding SearchButton}"
                 />
         </StackLayout>   
     </ContentPage.Content>
