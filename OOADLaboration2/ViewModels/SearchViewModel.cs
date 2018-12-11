@@ -7,8 +7,8 @@ namespace OOADLaboration2.ViewModels
 {
     public class SearchViewModel : BaseViewModel
     {
-        public ValidatableObject<string> Input { get; set; } = new ValidatableObject<string>();
-        string errorMessage;
+        public ValidatableObject<string> _search { get; set; } = new ValidatableObject<string>();
+        string _errorMessage;
         int selectedIndex;
         string entry;
         string[] types;
@@ -28,19 +28,19 @@ namespace OOADLaboration2.ViewModels
         public string[] Types
         {
             get => types;
-            set => SetProperty(ref types, value: value);
+            set => SetProperty(ref types, value);
         }
 
         public string Entry
         {
             get => entry;
-            set => SetProperty(ref entry, value: value);
+            set => SetProperty(ref entry, value);
         }
 
         public int SelectedIndex
         {
             get => selectedIndex;
-            set => SetProperty(ref selectedIndex, value: value);
+            set => SetProperty(ref selectedIndex, value);
         }
 
         public ICommand SearchCommand
@@ -51,6 +51,7 @@ namespace OOADLaboration2.ViewModels
 
         async void Search()
         {
+            //if (ValidateSearch())
             await Navigation.PushAsync(new ResultPage(entry, Types[selectedIndex]));
         }
 
@@ -61,13 +62,13 @@ namespace OOADLaboration2.ViewModels
 
         public string Error
         {
-            get => errorMessage;
-            set => SetProperty(ref errorMessage, value);
+            get => _errorMessage;
+            set => SetProperty(ref _errorMessage, value);
         }
 
         void AddValidations()
         {
-            Input.Validations.Add(new IsNotNullOrEmptyRule<string>
+            _search._validations.Add(new IsNotNullOrEmptyRule<string>
             {
                 ValidationMessage = "Search is required."
             });
@@ -75,7 +76,7 @@ namespace OOADLaboration2.ViewModels
 
         bool ValidateSearch()
         {
-            return Input.Validate();
+            return _search.Validate();
         }
 
     }

@@ -9,7 +9,7 @@ namespace OOADLaboration2.Validation
     {
         T _value;
         List<string> _errors;
-        public List<IValidationRule<T>> Validations { get; }
+        public List<IValidationRule<T>> _validations { get; }
 
         public T Value
         {
@@ -29,13 +29,15 @@ namespace OOADLaboration2.Validation
         {
             IsValid = true;
             _errors = new List<string>();
-            Validations = new List<IValidationRule<T>>();
+            _validations = new List<IValidationRule<T>>();
         }
 
         public bool Validate()
         {
             Errors.Clear();
-            IEnumerable<string> errors = Validations.Where(v => !v.Check(Value)).Select(v => v.ValidationMessage);
+            IEnumerable<string> errors = _validations
+                .Where(v => !v.Check(Value))
+                .Select(v => v.ValidationMessage);
             Errors = errors.ToList();
             IsValid = !Errors.Any();
             return IsValid;
