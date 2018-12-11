@@ -35,7 +35,6 @@
                 IsSpellCheckEnabled="true"
             />
             
-                
             <Label
                 Text="{Binding Error}"
                 FontSize="Small"
