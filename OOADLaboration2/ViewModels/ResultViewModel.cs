@@ -16,23 +16,32 @@ namespace OOADLaboration2.ViewModels
     {
         readonly HttpClient client;
         private ObservableCollection<Product> products;
+        string key = "325423-LookUp-ATIUNVKK";
+        private string searchWord;
+        private string type;
         public ObservableCollection<Product> Products
         {
             get => products;
             set => SetProperty(storage: ref products, value: value);
         }
 
-        // Add arguments (searchWord etc)
-        public ResultViewModel()
+        public ResultViewModel(string searchWord, string type)
         {
             client = new HttpClient();
             products = new ObservableCollection<Product>();
+            this.searchWord = searchWord;
+            this.type = type;
             FetchAndUpdateProducts();
+        }
+
+        private string getUrlString()
+        {
+            return "https://tastedive.com/api/similar?q=" + searchWord + "&type=" + type + "&k=" + key;
         }
 
         private async void FetchAndUpdateProducts()
         {
-            string url = "https://tastedive.com/api/similar?q=movie:goodfellas&type=movies&info=0&k=325423-LookUp-ATIUNVKK";
+            string url = getUrlString();
             var uri = new Uri(url);
             var response = await client.GetAsync(uri);
             if (response.IsSuccessStatusCode)
@@ -42,12 +51,14 @@ namespace OOADLaboration2.ViewModels
                 ObservableCollection<Product> fetchedProducts = new ObservableCollection<Product>();
                 JObject SearchResult = JObject.Parse(content);
                 IList<JToken> results = SearchResult["Similar"]["Results"].Children().ToList();
+
                 foreach (JToken result in results)
                 {
                     string resultName = result["Name"].ToString();
                     string resultType = result["Type"].ToString();
                     fetchedProducts.Add(new Product(resultName, resultType));
                 }
+
                 Products = fetchedProducts;
             }
         }
