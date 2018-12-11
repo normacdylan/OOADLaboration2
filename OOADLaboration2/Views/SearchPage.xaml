@@ -36,13 +36,11 @@
             />
                 
             <Label
-                Text="{Binding SearchInput.Errors},
-                Converter={local:Converter.ErrorConverter}}"
+                Text="{Binding Error}"
                 FontSize="Small"
                 TextColor="#6B0F1A"
-                Margin="2"
+                Margin="8"
                 HorizontalOptions="Center" />
-            <Label Text="{Binding ErrorMessage}" />
             
             <Button 
                 x:Name="SearchButton"
@@ -51,11 +49,9 @@
                 WidthRequest="205"
                 HeightRequest="55"
                 BackgroundColor="#18314F"
-                Margin="8"
                 Command="{Binding SearchCommand}"
                 HorizontalOptions="Center"
-                Command="{Binding SearchButton}"
-                />
+            />
         </StackLayout>   
     </ContentPage.Content>
 </ContentPage>
