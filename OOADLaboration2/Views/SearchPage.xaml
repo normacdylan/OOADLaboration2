@@ -2,6 +2,8 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:OOADLaboration2"
+    xmlns:vm="clr-namespace:OOADLaboration2.ViewModels"
     x:Class="OOADLaboration2.SearchPage"
     Title="Search">
     <ContentPage.Content>
@@ -31,7 +33,16 @@
                 HeightRequest="50"
                 IsTextPredictionEnabled="true"
                 IsSpellCheckEnabled="true"
-                />
+            />
+                
+            <Label
+                Text="{Binding SearchInput.Errors},
+                Converter={local:Converter.ErrorConverter}}"
+                FontSize="Small"
+                TextColor="#6B0F1A"
+                Margin="2"
+                HorizontalOptions="Center" />
+            <Label Text="{Binding ErrorMessage}" />
             
             <Button 
                 x:Name="SearchButton"
@@ -43,6 +54,7 @@
                 Margin="8"
                 Command="{Binding SearchCommand}"
                 HorizontalOptions="Center"
+                Command="{Binding SearchButton}"
                 />
         </StackLayout>   
     </ContentPage.Content>

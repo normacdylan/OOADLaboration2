@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 namespace OOADLaboration2.Validation
 {
     public class IsNotNullOrEmptyRule<T> : IValidationRule<T>
