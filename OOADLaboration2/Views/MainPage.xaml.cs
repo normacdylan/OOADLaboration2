@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Text;
+using OOADLaboration2.ViewModels;
 using Xamarin.Forms;
 
 namespace OOADLaboration2
@@ -9,12 +10,8 @@ namespace OOADLaboration2
     {
         public MainPage()
         {
+            BindingContext = new MainViewModel(Navigation);
             InitializeComponent();
-
-            GoToSearchButton.Clicked += async (sender, args) =>
-            {
-                await Navigation.PushAsync(new SearchPage());
-            };
         }
     }
 }

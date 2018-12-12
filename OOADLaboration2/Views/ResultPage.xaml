@@ -8,6 +8,11 @@
     Title="Recommendations">
     <ContentPage.Content>
         <StackLayout>
+            <Label 
+                Text="{Binding ResultMessage}"
+                HorizontalOptions="Center"
+                Margin="8"
+            />
            <ListView x:Name="listView"
                      ItemsSource="{Binding Products}"
                      RowHeight="65"

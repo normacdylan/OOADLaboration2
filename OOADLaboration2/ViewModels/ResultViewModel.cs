@@ -16,9 +16,10 @@ namespace OOADLaboration2.ViewModels
     {
         readonly HttpClient client;
         private ObservableCollection<Product> products;
-        string key = "325423-LookUp-ATIUNVKK";
+        readonly string KEY = "325423-LookUp-ATIUNVKK";
         private string searchWord;
         private string type;
+        private string resultMessage;
         public ObservableCollection<Product> Products
         {
             get => products;
@@ -31,12 +32,19 @@ namespace OOADLaboration2.ViewModels
             products = new ObservableCollection<Product>();
             this.searchWord = searchWord;
             this.type = type;
+            resultMessage = "";
             FetchAndUpdateProducts();
+        }
+
+        public string ResultMessage
+        {
+            get => resultMessage;
+            set => SetProperty(ref resultMessage, value);
         }
 
         private string getUrlString()
         {
-            return "https://tastedive.com/api/similar?q=" + searchWord + "&type=" + type + "&k=" + key;
+            return "https://tastedive.com/api/similar?q=" + searchWord + "&type=" + type + "&k=" + KEY;
         }
 
         private async void FetchAndUpdateProducts()
@@ -60,6 +68,10 @@ namespace OOADLaboration2.ViewModels
                 }
 
                 Products = fetchedProducts;
+                ResultMessage = "Found " + Products.Count.ToString() + " results.";
+            }
+            else {
+                ResultMessage = "Connection lost. Try again later";
             }
         }
     }
