@@ -8,7 +8,6 @@ namespace OOADLaboration2.ViewModels
     public class SearchViewModel : BaseViewModel
     {
         public ValidatableObject<string> _search { get; set; } = new ValidatableObject<string>();
-        string _errorMessage;
         int selectedIndex;
         string entry;
         string[] types;
@@ -53,12 +52,6 @@ namespace OOADLaboration2.ViewModels
         {
             if (ValidateSearch())
                 await Navigation.PushAsync(new ResultPage(entry, Types[selectedIndex]));
-        }
-
-        public string Error
-        {
-            get => _errorMessage;
-            set => SetProperty(ref _errorMessage, value);
         }
 
         void AddValidations()

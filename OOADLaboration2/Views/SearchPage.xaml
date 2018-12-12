@@ -49,7 +49,6 @@
                 TextColor="Red"
                 Margin="4"
                 HorizontalOptions="Center" />
-            <Label Text="{Binding Error}"/>
             
             <Button 
                 x:Name="SearchButton"
