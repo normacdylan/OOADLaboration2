@@ -3,9 +3,13 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:OOADLaboration2"
+    xmlns:converters="clr-namespace:OOADLaboration2.Converter"
     xmlns:vm="clr-namespace:OOADLaboration2.ViewModels"
     x:Class="OOADLaboration2.SearchPage"
     Title="Search">
+    <ContentPage.Resources>
+          <converters:ErrorConverter x:Key="ErrorConverter"/>
+     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand"> 
             <Picker 
@@ -17,7 +21,7 @@
                 ItemsSource="{Binding Types}"
                 SelectedIndex="{Binding SelectedIndex}"
                 WidthRequest="250"
-                HeightRequest="35"
+                HeightRequest="40"
                 Margin="4"
                />
                            
@@ -36,19 +40,21 @@
             />
             
             <Label
-                Text="{Binding Error}"
+                Text="{Binding _search.Errors, Converter={converters:ErrorConverter}}"
                 FontSize="Small"
-                TextColor="#6B0F1A"
-                Margin="8"
+                TextColor="Red"
+                Margin="4"
                 HorizontalOptions="Center" />
+            <Label Text="{Binding Error}"/>
             
             <Button 
                 x:Name="SearchButton"
                 Text="Find recommendations"
                 TextColor="White"
-                WidthRequest="205"
-                HeightRequest="55"
+                WidthRequest="200"
+                HeightRequest="65"
                 BackgroundColor="#18314F"
+                BorderRadius="6"
                 Command="{Binding SearchCommand}"
                 HorizontalOptions="Center"
             />
