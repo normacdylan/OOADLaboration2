@@ -3,13 +3,15 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:vm="clr-namespace:OOADLaboration2.ViewModels"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
     x:Class="OOADLaboration2.ResultPage"
     Title="Recommendations">
     <ContentPage.Content>
         <StackLayout>
            <ListView x:Name="listView"
                      ItemsSource="{Binding Products}"
-                     RowHeight="65">
+                     RowHeight="65"
+                     android:ListView.IsFastScrollEnabled="true">
               <ListView.ItemTemplate>
                   <DataTemplate>
                     <TextCell

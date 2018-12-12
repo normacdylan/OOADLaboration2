@@ -3,6 +3,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:OOADLaboration2"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
     xmlns:converters="clr-namespace:OOADLaboration2.Converter"
     xmlns:vm="clr-namespace:OOADLaboration2.ViewModels"
     x:Class="OOADLaboration2.SearchPage"
@@ -23,6 +25,7 @@
                 WidthRequest="250"
                 HeightRequest="40"
                 Margin="4"
+                ios:Picker.UpdateMode="Immediately"
                />
                            
             <Entry 
@@ -37,6 +40,7 @@
                 HeightRequest="50"
                 IsTextPredictionEnabled="true"
                 IsSpellCheckEnabled="true"
+                ios:Entry.AdjustsFontSizeToFitWidth="true"
             />
             
             <Label
@@ -57,6 +61,8 @@
                 BorderRadius="6"
                 Command="{Binding SearchCommand}"
                 HorizontalOptions="Center"
+                android:Button.UseDefaultPadding="true"
+                android:Button.UseDefaultShadow="true"
             />
         </StackLayout>   
     </ContentPage.Content>

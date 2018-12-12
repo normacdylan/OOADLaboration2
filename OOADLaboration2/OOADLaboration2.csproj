@@ -24,10 +24,14 @@
     <Compile Remove="Models\EmptyClass.cs" />
     <Compile Remove="Models\SearchHistory.cs" />
     <Compile Remove="Models\SearchResult.cs" />
+    <Compile Remove="Views\HistoryPage.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Views\MainPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\HistoryPage.xaml" />
   </ItemGroup>
 </Project>

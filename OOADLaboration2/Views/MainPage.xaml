@@ -3,6 +3,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:OOADLaboration2"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
     x:Class="OOADLaboration2.MainPage"
     Title="Taste Explorer">
     <StackLayout>
@@ -17,6 +18,8 @@
             BackgroundColor="#6B0F1A"
             HorizontalOptions="CenterAndExpand"
             VerticalOptions="CenterAndExpand"
+            android:Button.UseDefaultPadding="true"
+            android:Button.UseDefaultShadow="true"
             />
     </StackLayout>
 </ContentPage>

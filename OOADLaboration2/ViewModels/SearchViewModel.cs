@@ -55,11 +55,6 @@ namespace OOADLaboration2.ViewModels
                 await Navigation.PushAsync(new ResultPage(entry, Types[selectedIndex]));
         }
 
-        void SearchPressed()
-        {
-            ValidateSearch();
-        }
-
         public string Error
         {
             get => _errorMessage;
